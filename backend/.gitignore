@@ -1,0 +1,7 @@
+.env
+service_account/
+src/service_account/
+dist/
+node_modules/
+pnpm-lock.yaml
+test.autoseed

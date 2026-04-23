@@ -1,0 +1,180 @@
+@import "../../styles/tokens.css";
+
+:root {
+  /* Softer palette for doctor app */
+  --color-accent: #1f8e62;
+  --color-accent-strong: #167650;
+  --color-border: #d9e2ec;
+  --color-ink: #142034;
+  --color-surface: #ffffff;
+}
+
+:root {
+  /* legacy aliases for existing classes */
+  --bg: var(--color-bg);
+  --surface: var(--color-surface);
+  --muted: var(--color-muted);
+  --ink: var(--color-ink);
+  --border: var(--color-border);
+  --accent: var(--color-accent);
+  --accent-strong: var(--color-accent-strong);
+  --shadow-card: var(--shadow-soft);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: var(--color-bg);
+  background-image: radial-gradient(circle at 12% 20%, rgba(108, 221, 161, 0.2), transparent 26%),
+    radial-gradient(circle at 82% 0%, rgba(69, 190, 134, 0.16), transparent 20%),
+    radial-gradient(circle at 30% 80%, rgba(53, 201, 107, 0.12), transparent 25%);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.glass-panel {
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.tag {
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+}
+
+.mono-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.mono-switch .switch {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--color-border);
+  transition: background 0.2s ease;
+}
+
+.mono-switch .switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mono-switch .switch.on {
+  background: rgba(43, 209, 126, 0.3);
+}
+
+.mono-switch .switch.on .switch-thumb {
+  transform: translateX(24px);
+  background: var(--color-accent-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 font-semibold;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.9rem;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(15, 157, 88, 0.25);
+}
+
+.btn-ghost {
+  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);
+  color: #fff;
+  border-color: transparent;
+}
+
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  color: var(--color-ink);
+}
+
+.badge-success {
+  border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
+  background: color-mix(in srgb, var(--color-success) 12%, transparent);
+  color: var(--color-success);
+}
+
+.badge-warning {
+  border-color: color-mix(in srgb, var(--color-warning) 40%, transparent);
+  background: color-mix(in srgb, var(--color-warning) 12%, transparent);
+  color: var(--color-warning);
+}
+
+.badge-info {
+  border-color: color-mix(in srgb, var(--color-info) 40%, transparent);
+  background: color-mix(in srgb, var(--color-info) 12%, transparent);
+  color: var(--color-info);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: radial-gradient(circle at 20% 20%, rgba(11, 18, 32, 0.22), transparent 26%),
+    rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-card {
+  max-width: 520px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+  box-shadow: var(--shadow-strong);
+}

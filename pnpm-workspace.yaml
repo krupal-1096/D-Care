@@ -1,0 +1,4 @@
+packages:
+  - doctor
+  - admin
+  - backend

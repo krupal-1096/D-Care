@@ -1,0 +1,16 @@
+{
+  "name": "doctor-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.12.3",
+  "scripts": {
+    "dev:doctor": "pnpm --filter doctor-app-doctor dev",
+    "build:doctor": "pnpm --filter doctor-app-doctor build",
+    "preview:doctor": "pnpm --filter doctor-app-doctor preview",
+    "lint:doctor": "pnpm --filter doctor-app-doctor lint",
+    "dev:admin": "pnpm --filter doctor-app-admin dev",
+    "build:admin": "pnpm --filter doctor-app-admin build",
+    "preview:admin": "pnpm --filter doctor-app-admin preview"
+  }
+}
