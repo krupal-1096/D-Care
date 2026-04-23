@@ -1,4 +1,4 @@
-# D-Care 🩺
+# D-Care
 
 *A dermatology case review platform for admins and doctors*
 
