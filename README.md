@@ -1,33 +1,117 @@
-# D-Care (Admin + Doctor apps)
+# D-Care 🩺
 
-D-Care is a dermatology case review platform with an admin console (React + Vite + Zustand) and a Node/Express backend backed by Firebase. Admins manage cases, doctors, and team access; doctors review and verify patient cases.
+*A dermatology case review platform for admins and doctors*
 
-## Getting started
+---
 
-```bash
-pnpm install
-pnpm dev
-```
+## Overview
+
+**D-Care** is a web-based platform designed to streamline dermatology case management.
+It provides separate interfaces for **Admins** and **Doctors**, making it easy to manage patient cases, assign reviews, and track verification history.
+
+---
 
 ## Requirements
-- Node 18+ and pnpm 9+
-- Firebase project credentials (service account JSON as base64 in `FIREBASE_SERVICE_ACCOUNT`, `FIREBASE_PROJECT_ID`)
-- `AUTH_SECRET` for local JWT logins; optional `DEFAULT_ADMIN_EMAIL`/`DEFAULT_ADMIN_PASSWORD` for bootstrap
 
-## Setup
-1) Install deps: `pnpm install`
-2) Backend env: create `.env` in `backend/` with `FIREBASE_PROJECT_ID`, `FIREBASE_SERVICE_ACCOUNT`, `AUTH_SECRET`, optional defaults.  
-3) Run backend: `cd backend && pnpm dev`
-4) Run admin app: `pnpm dev:admin` (served from `/admin`)
-5) Run doctor app (if needed): `pnpm dev:doctor`
+Before getting started, make sure you have:
 
-## Scripts
-- `pnpm dev:admin` / `build:admin` / `preview:admin`
-- `pnpm dev:doctor` / `build:doctor` / `preview:doctor`
+* Node.js **v18+**
+* pnpm **v9+**
+* Firebase project credentials:
 
-## What’s included
+  * `FIREBASE_PROJECT_ID`
+  * `FIREBASE_SERVICE_ACCOUNT` (base64 encoded)
+* `AUTH_SECRET` for JWT authentication
+* *(Optional)*
 
-- Persistent login store (email + password or Google ID) until logout.
-- Patient data seeded from `src/data/patients.ts` with Zustand persistence.
-- Home (patient cards), patient form (sliders per disease), and verified patients filtered by the logged-in doctor.
-- Dynamic header title and bottom navigation.
+  * `DEFAULT_ADMIN_EMAIL`
+  * `DEFAULT_ADMIN_PASSWORD`
+
+---
+
+## Setup Instructions
+
+1. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+2. Configure backend environment:
+   Create a `.env` file inside `backend/` and add:
+
+   ```
+   FIREBASE_PROJECT_ID=your_project_id
+   FIREBASE_SERVICE_ACCOUNT=your_base64_key
+   AUTH_SECRET=your_secret
+   ```
+
+3. Start backend server:
+
+   ```bash
+   cd backend
+   pnpm dev
+   ```
+
+4. Run Admin app:
+
+   ```bash
+   pnpm dev:admin
+   ```
+
+5. Run Doctor app:
+
+   ```bash
+   pnpm dev:doctor
+   ```
+
+---
+
+## Admin Console Features
+
+* Manage patient cases (Create, Update, Delete)
+* Assign cases to doctors
+* Super Admin access:
+
+  * Add / update / remove other admins
+* View doctors and assigned cases
+
+---
+
+## Doctor Console Features
+
+* View assigned patient cases
+* Update and verify case details
+* Submit verified cases
+* View history of verified cases
+* Update personal profile
+
+---
+
+## General Features
+
+* Persistent login
+* Patient data management
+* Light / Dark theme support
+* Dynamic header and navigation
+* Responsive UI for smooth experience
+
+---
+
+## Project Structure
+
+```
+D-Care/
+├── admin/      # Admin frontend
+├── doctor/     # Doctor frontend
+├── backend/    # API & authentication
+├── styles/     # Shared styles
+```
+
+---
+
+## Contribution
+
+Feel free to fork and improve the project. Contributions are welcome!
+
+
